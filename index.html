@@ -1,137 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Happy Birthday Ankika</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins', sans-serif;
-}
 body{
-  background:linear-gradient(180deg,#ffeef3,#fff);
-  overflow:hidden;
+  font-family:'Poppins',sans-serif;
+}
+.stylish{
+  font-family:'Dancing Script',cursive;
 }
 .page{
-  width:100vw;
-  height:100vh;
   display:none;
-  padding:30px;
-  text-align:center;
+  height:100vh;
+  width:100vw;
 }
 .page.active{
   display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
 }
-h1{
-  color:#ff4f8b;
-  margin-bottom:20px;
+.fade{
+  animation:fade 1s ease;
 }
-.cursive{
-  font-family:'Pacifico', cursive;
-  font-size:32px;
-  color:#ff5c9d;
+@keyframes fade{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
 }
-.content{
-  max-width:900px;
-  font-size:16px;
-  line-height:1.9;
-  color:#444;
-  white-space:pre-wrap;
-}
-
-/* Floating (breathing) effect */
-.floating{
-  animation:float 4s ease-in-out infinite;
-}
-@keyframes float{
-  0%{transform:translateY(0)}
-  50%{transform:translateY(-10px)}
-  100%{transform:translateY(0)}
-}
-
-/* Decorations */
-.decor{
-  font-size:38px;
-  margin-bottom:20px;
-}
-
-/* Next button */
 .next{
-  position:absolute;
+  position:fixed;
   bottom:20px;
   right:20px;
-  background:#ff4f8b;
-  color:#fff;
-  border:none;
-  padding:10px 24px;
-  border-radius:25px;
-  font-size:14px;
-  cursor:pointer;
+  background:#ff5c8a;
+  color:white;
+  padding:10px 22px;
+  border-radius:999px;
 }
 </style>
 </head>
-<!-- Voice song for Page 5 -->
-<audio id="voiceSong" preload="auto">
-    <source src="voice.mp3" type="audio/mpeg">
+
+<body class="bg-gradient-to-br from-pink-50 to-white text-gray-800">
+
+<!-- 🎧 VOICE -->
+<audio id="voiceSong">
+  <source src="voice.mp3.mp3" type="audio/mpeg">
 </audio>
 
-<body>
-
 <!-- PAGE 1 -->
-<div class="page active">
-  <div class="floating" style="font-size:130px;">🧸</div>
-  <div class="cursive floating">Hey Birthday Girl 💖<br>How are you?</div>
-  <button class="next" onclick="nextPage()">Next ➜</button>
+<div id="p1" class="page active fade flex-col justify-center items-center text-center">
+  <div class="text-8xl animate-bounce">🧸</div>
+  <h1 class="stylish text-4xl md:text-6xl text-rose-500 mt-6">
+    Hey birthday girl 💖<br/>how are you ..
+  </h1>
+  <button class="next" onclick="go(2)">Next →</button>
 </div>
 
 <!-- PAGE 2 -->
-<div class="page">
-  <h1 class="floating">Happyy Birthday Ankika 🎉</h1>
-  <div class="decor floating">🎂 🎁 🍫 🧸 🎈</div>
-  <button class="next" onclick="nextPage()">Next ➜</button>
+<div id="p2" class="page fade flex-col justify-center items-center text-center bg-white">
+  <h1 class="stylish text-5xl md:text-7xl text-pink-500">
+    Happyy birthday<br/>Ankika 🎂
+  </h1>
+  <div class="text-4xl mt-6">🎁 🍫 🎈 🧸</div>
+  <button class="next" onclick="go(3)">Next →</button>
 </div>
 
 <!-- PAGE 3 -->
-<div class="page page-3">
-  <div class="decor floating">✨ 💌 🌸</div>
-  <div id="text3" class="content floating"></div>
-  <button class="next" onclick="nextPage()">Next ➜</button>
+<div id="p3" class="page fade flex-col justify-center items-center text-center bg-blue-50 px-6">
+  <div id="t3" class="stylish text-2xl md:text-3xl leading-loose max-w-3xl"></div>
+  <button class="next" onclick="go(4)">Next →</button>
 </div>
 
 <!-- PAGE 4 -->
-<div class="page page-4">
-  <div class="decor floating">❤️ 🌈</div>
-  <div id="text4" class="content floating"></div>
-  <button class="next" onclick="nextPage()">Next ➜</button>
+<div id="p4" class="page fade flex-col justify-center items-center text-center bg-rose-50 px-6">
+  <div id="t4" class="max-w-3xl text-lg leading-loose"></div>
+  <button class="next" onclick="go(5)">Next →</button>
 </div>
 
-<!-- PAGE 5 -->
-<div class="page page-5">
-  <div class="decor floating">🕊️ 💭</div>
-  <div id="text5" class="content floating"></div>
-  <button class="next" onclick="nextPage()">Next ➜</button>
+<!-- PAGE 5 (VOICE HERE) -->
+<div id="p5" class="page fade flex-col justify-center items-center bg-gray-900 text-gray-200 px-6">
+  <h2 class="stylish text-4xl text-yellow-300 mb-6">SOME WORDS...</h2>
+  <div id="t5" class="max-w-3xl text-left leading-relaxed text-sm md:text-base"></div>
+  <button class="next bg-yellow-400 text-black" onclick="go(6)">Next →</button>
 </div>
 
 <!-- PAGE 6 -->
-<div class="page">
-  <h1 class="floating">Happy Birthday Dear<br>Future Doctor 👩‍⚕️🎂</h1>
-  <div class="decor floating">✨ 🌟 🧸 💖</div>
+<div id="p6" class="page fade flex-col justify-center items-center text-center bg-gradient-to-br from-pink-400 to-purple-500 text-white">
+  <h1 class="stylish text-6xl md:text-8xl">
+    Happy Birthday<br/>Dear Future Doctor 👩‍⚕️🎂
+  </h1>
 </div>
 
 <script>
-let current = 0;
-const pages = document.querySelectorAll('.page');
+const pages=[p1,p2,p3,p4,p5,p6];
+const voice=document.getElementById("voiceSong");
 
-const texts = {
-  text3: `A birthday greetings from your friend
+const text={
+t3:`A birthday greetings from your friend
 
 To the one with dreams as wide as the sea,
 And a heart as kind as a heart can be.
@@ -148,22 +115,20 @@ I’ll be here to cheer you along your way.
 My most precious friend, my light, my guide,
 May the universe always stay on your side.`,
 
-  text4: `From heart ❤️
+t4:`From heart ❤️
 
 Happy birthday dear Ankika,
 Happy birthday, many many happy returns of the day.
 Be the sunshine and rainbow in your parents life.
 May God fulfill all your wishes and dreams comes true in your life.
-Stay blessed, stay happily.
+Stay blessed, stay happily,
 Live with those who makes your day happy and make your life full of beautiful creatures.
 
-Happiest birthday to my dear.
+Happiest birthday to my dear,
 I pray that you continue to be the wonderful person that you are
 and get everything you have ever dream.`,
 
-  text5: `SOME WORDS...
-
-Maybe I am the worst person in your life.
+t5:`Maybe I am the worst person in your life.
 Maybe I am not your type, maybe I can’t change myself,
 or maybe I’m not the right one for you...
 
@@ -195,28 +160,23 @@ Happy Birthday, Ankika.
 Stay happy.`
 };
 
-function typeText(id, text){
-  let i = 0;
-  document.getElementById(id).innerHTML = "";
-  function typing(){
-    if(i < text.length){
-      document.getElementById(id).innerHTML += text.charAt(i);
-      i++;
-      setTimeout(typing, 35);
-    }
-  }
-  typing();
+function type(id,txt){
+  let i=0; id.innerHTML="";
+  let timer=setInterval(()=>{
+    id.innerHTML+=txt.charAt(i++);
+    if(i>=txt.length)clearInterval(timer);
+  },30);
 }
 
-function nextPage(){
-  pages[current].classList.remove('active');
-  current++;
-  if(current < pages.length){
-    pages[current].classList.add('active');
-    if(current === 2) typeText("text3", texts.text3);
-    if(current === 3) typeText("text4", texts.text4);
-    if(current === 4) typeText("text5", texts.text5);
-  }
+function go(n){
+  pages.forEach(p=>p.classList.remove("active"));
+  pages[n-1].classList.add("active");
+
+  voice.pause(); voice.currentTime=0;
+
+  if(n===3) type(t3,text.t3);
+  if(n===4) type(t4,text.t4);
+  if(n===5){ type(t5,text.t5); voice.play().catch(()=>{}); }
 }
 </script>
 
