@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Happy Birthday Ankika</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 *{
@@ -14,14 +14,14 @@
   font-family:'Poppins', sans-serif;
 }
 body{
-  background:#ffeef3;
+  background:linear-gradient(180deg,#ffeef3,#fff);
   overflow:hidden;
 }
 .page{
   width:100vw;
   height:100vh;
   display:none;
-  padding:25px;
+  padding:30px;
   text-align:center;
 }
 .page.active{
@@ -39,33 +39,28 @@ h1{
   font-size:32px;
   color:#ff5c9d;
 }
-p{
+.content{
+  max-width:900px;
   font-size:16px;
-  line-height:1.8;
+  line-height:1.9;
   color:#444;
-  max-width:850px;
+  white-space:pre-wrap;
 }
 
-/* Floating animation */
+/* Floating (breathing) effect */
 .floating{
-  animation: float 4s ease-in-out infinite;
+  animation:float 4s ease-in-out infinite;
 }
 @keyframes float{
-  0%{ transform:translateY(0); }
-  50%{ transform:translateY(-10px); }
-  100%{ transform:translateY(0); }
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+  100%{transform:translateY(0)}
 }
 
 /* Decorations */
-.decorations{
-  font-size:42px;
-  margin-bottom:15px;
-}
-
-/* Typewriter */
-.typewriter{
-  white-space:pre-wrap;
-  text-align:center;
+.decor{
+  font-size:38px;
+  margin-bottom:20px;
 }
 
 /* Next button */
@@ -74,12 +69,12 @@ p{
   bottom:20px;
   right:20px;
   background:#ff4f8b;
-  color:white;
+  color:#fff;
   border:none;
-  padding:10px 22px;
+  padding:10px 24px;
   border-radius:25px;
-  cursor:pointer;
   font-size:14px;
+  cursor:pointer;
 }
 </style>
 </head>
@@ -88,69 +83,51 @@ p{
 
 <!-- PAGE 1 -->
 <div class="page active">
-  <div class="floating" style="font-size:120px;">🧸</div>
+  <div class="floating" style="font-size:130px;">🧸</div>
   <div class="cursive floating">Hey Birthday Girl 💖<br>How are you?</div>
   <button class="next" onclick="nextPage()">Next ➜</button>
 </div>
 
 <!-- PAGE 2 -->
 <div class="page">
-  <h1 class="floating">Happyy Birthday Ankika 🎉🎂</h1>
-  <div class="decorations floating">🎈 🍫 🎁 🧸 🎊</div>
+  <h1 class="floating">Happyy Birthday Ankika 🎉</h1>
+  <div class="decor floating">🎂 🎁 🍫 🧸 🎈</div>
   <button class="next" onclick="nextPage()">Next ➜</button>
 </div>
 
-<!-- PAGE 3 (TYPEWRITER POEM) -->
+<!-- PAGE 3 -->
 <div class="page page-3">
-  <div class="decorations floating">🎂 🍫 🧸 🎁 🎈 🍭</div>
-  <div id="poem" class="typewriter floating"></div>
+  <div class="decor floating">✨ 💌 🌸</div>
+  <div id="text3" class="content floating"></div>
   <button class="next" onclick="nextPage()">Next ➜</button>
 </div>
 
 <!-- PAGE 4 -->
-<div class="page">
-<p class="floating">
-From heart ❤️<br><br>
-Happy birthday dear Ankika,<br>
-Happy birthday, many many happy returns of the day.<br>
-Be the sunshine and rainbow in your parents life.<br>
-May God fulfill all your wishes and dreams come true in your life.<br>
-Stay blessed, stay happily.<br>
-Live with those who make your day happy and make your life full of beautiful creatures.<br><br>
-Happiest birthday to my dear.<br>
-I pray that you continue to be the wonderful person that you are and get everything you have ever dreamed of.
-</p>
-<button class="next" onclick="nextPage()">Next ➜</button>
+<div class="page page-4">
+  <div class="decor floating">❤️ 🌈</div>
+  <div id="text4" class="content floating"></div>
+  <button class="next" onclick="nextPage()">Next ➜</button>
 </div>
 
 <!-- PAGE 5 -->
-<div class="page">
-<p class="floating">
-<b>SOME WORDS...</b><br><br>
-Maybe I am the worst person in your life.<br>
-Maybe I am not your type, maybe I can’t change myself,<br>
-or maybe I’m not the right one for you...<br><br>
-But from my heart, I always pray to God for you.<br>
-I always wish the best for you and want you to stay happy.<br><br>
-I know I misbehaved sometimes.<br>
-I never said sorry then, but today, from my heart, I am truly sorry.<br><br>
-Stay happy, stay blessed, and stay strong.<br>
-Happy Birthday, Ankika. 💖
-</p>
-<button class="next" onclick="nextPage()">Next ➜</button>
+<div class="page page-5">
+  <div class="decor floating">🕊️ 💭</div>
+  <div id="text5" class="content floating"></div>
+  <button class="next" onclick="nextPage()">Next ➜</button>
 </div>
 
 <!-- PAGE 6 -->
 <div class="page">
-  <h1 class="floating">Happy Birthday Dear Ankika 🎂💐</h1>
-  <div class="decorations floating">💖 🌈 ✨ 🧸 🎊</div>
+  <h1 class="floating">Happy Birthday Dear<br>Future Doctor 👩‍⚕️🎂</h1>
+  <div class="decor floating">✨ 🌟 🧸 💖</div>
 </div>
 
 <script>
 let current = 0;
 const pages = document.querySelectorAll('.page');
 
-const poemText = `A birthday greetings from your friend 💫
+const texts = {
+  text3: `A birthday greetings from your friend
 
 To the one with dreams as wide as the sea,
 And a heart as kind as a heart can be.
@@ -165,15 +142,66 @@ As you walk your path with grace and light.
 No matter the distance, no matter the day,
 I’ll be here to cheer you along your way.
 My most precious friend, my light, my guide,
-May the universe always stay on your side.`;
+May the universe always stay on your side.`,
 
-let i = 0;
-function typeWriter(){
-  if(i < poemText.length){
-    document.getElementById("poem").innerHTML += poemText.charAt(i);
-    i++;
-    setTimeout(typeWriter, 40);
+  text4: `From heart ❤️
+
+Happy birthday dear Ankika,
+Happy birthday, many many happy returns of the day.
+Be the sunshine and rainbow in your parents life.
+May God fulfill all your wishes and dreams comes true in your life.
+Stay blessed, stay happily.
+Live with those who makes your day happy and make your life full of beautiful creatures.
+
+Happiest birthday to my dear.
+I pray that you continue to be the wonderful person that you are
+and get everything you have ever dream.`,
+
+  text5: `SOME WORDS...
+
+Maybe I am the worst person in your life.
+Maybe I am not your type, maybe I can’t change myself,
+or maybe I’m not the right one for you...
+
+But from my heart, I always pray to God for you.
+I always wish the best for you and want you to stay happy.
+I always tried to keep you happy, and though I sometimes failed,
+I truly never wanted to disappoint or disrespect you.
+
+Sometimes, without knowing it, I mistakenly hurt you.
+Other errors happened, too, but ultimately, from my heart: stay happy.
+I am always with you from afar.
+
+I know you may hate me now, but it’s fine.
+I will continue to pray for you from a distance.
+Keep going. Build a beautiful life and achieve everything you’ve dreamed of.
+
+I may not be your best friend or the one who gives you happiness,
+but I always want you to be happy.
+
+I know I misbehaved sometimes.
+I never said sorry then, but today, from my heart, I am truly sorry.
+
+Stay happy, stay blessed, and stay strong.
+Fulfill all your dreams.
+If you ever feel tired, just message me.
+I am always here for you and will try my best.
+
+Happy Birthday, Ankika.
+Stay happy.`
+};
+
+function typeText(id, text){
+  let i = 0;
+  document.getElementById(id).innerHTML = "";
+  function typing(){
+    if(i < text.length){
+      document.getElementById(id).innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typing, 35);
+    }
   }
+  typing();
 }
 
 function nextPage(){
@@ -181,15 +209,12 @@ function nextPage(){
   current++;
   if(current < pages.length){
     pages[current].classList.add('active');
-    if(pages[current].classList.contains('page-3')){
-      document.getElementById("poem").innerHTML = "";
-      i = 0;
-      typeWriter();
-    }
+    if(current === 2) typeText("text3", texts.text3);
+    if(current === 3) typeText("text4", texts.text4);
+    if(current === 4) typeText("text5", texts.text5);
   }
 }
 </script>
 
 </body>
 </html>
-
