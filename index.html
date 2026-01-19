@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Ankika</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins', sans-serif;
+}
+body{
+  background:#ffeef3;
+  overflow:hidden;
+}
+.page{
+  width:100vw;
+  height:100vh;
+  display:none;
+  padding:30px;
+  text-align:center;
+}
+.page.active{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+h1{
+  color:#ff4f8b;
+  margin-bottom:20px;
+}
+.cursive{
+  font-family:'Pacifico', cursive;
+  font-size:32px;
+  color:#ff5c9d;
+}
+p{
+  font-size:16px;
+  line-height:1.7;
+  color:#444;
+  max-width:800px;
+}
+.next{
+  position:absolute;
+  bottom:20px;
+  right:20px;
+  background:#ff4f8b;
+  color:white;
+  border:none;
+  padding:10px 22px;
+  border-radius:25px;
+  cursor:pointer;
+  font-size:14px;
+}
+.teddy{
+  font-size:120px;
+}
+
+/* Page specific tweaks */
+.page-2 h1{
+  font-family:'Pacifico', cursive;
+  font-size:40px;
+}
+.page-6 h1{
+  font-size:42px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Page 1 -->
+<div class="page active page-1">
+  <div class="teddy">🧸</div>
+  <div class="cursive">Hey Birthday Girl 💖<br>How are you?</div>
+  <button class="next" onclick="nextPage()">Next ➜</button>
+</div>
+
+<!-- Page 2 -->
+<div class="page page-2">
+  <h1>Happyy Birthday Ankika 🎉</h1>
+  <button class="next" onclick="nextPage()">Next ➜</button>
+</div>
+
+<!-- Page 3 -->
+<div class="page page-3">
+<p>
+A birthday greetings from your friend 💫<br><br>
+
+To the one with dreams as wide as the sea,<br>
+And a heart as kind as a heart can be.<br>
+With white-coat dreams and a heart of gold,<br>
+A story of healing waiting to be told.<br><br>
+
+May your laughter echo in every room,<br>
+And your happiness always stay in bloom.<br>
+Keeping your beautiful soul forever bright,<br>
+As you walk your path with grace and light.<br><br>
+
+No matter the distance, no matter the day,<br>
+I’ll be here to cheer you along your way.<br>
+My most precious friend, my light, my guide,<br>
+May the universe always stay on your side.
+</p>
+  <button class="next" onclick="nextPage()">Next ➜</button>
+</div>
+
+<!-- Page 4 -->
+<div class="page page-4">
+<p>
+From heart ❤️<br><br>
+
+Happy birthday dear Ankika,<br>
+Happy birthday, many many happy returns of the day.<br>
+Be the sunshine and rainbow in your parents life.<br>
+May God fulfill all your wishes and dreams come true in your life.<br>
+Stay blessed, stay happily.<br>
+Live with those who make your day happy and make your life full of beautiful creatures.<br><br>
+
+Happiest birthday to my dear.<br>
+I pray that you continue to be the wonderful person that you are<br>
+and get everything you have ever dreamed of.
+</p>
+  <button class="next" onclick="nextPage()">Next ➜</button>
+</div>
+
+<!-- Page 5 -->
+<div class="page page-5">
+<p>
+<b>SOME WORDS...</b><br><br>
+
+Maybe I am the worst person in your life.<br>
+Maybe I am not your type, maybe I can’t change myself,<br>
+or maybe I’m not the right one for you...<br><br>
+
+But from my heart, I always pray to God for you.<br>
+I always wish the best for you and want you to stay happy.<br>
+I always tried to keep you happy, and though I sometimes failed,<br>
+I truly never wanted to disappoint or disrespect you.<br><br>
+
+Sometimes, without knowing it, I mistakenly hurt you.<br>
+Other errors happened too, but ultimately, from my heart: stay happy.<br>
+I am always with you from afar.<br><br>
+
+I know you may hate me now, but it’s fine.<br>
+I will continue to pray for you from a distance.<br>
+Keep going. Build a beautiful life and achieve everything you’ve dreamed of.<br><br>
+
+I may not be your best friend or the one who gives you happiness,<br>
+but I always want you to be happy.<br><br>
+
+I know I misbehaved sometimes.<br>
+I never said sorry then, but today, from my heart, I am truly sorry.<br><br>
+
+Stay happy, stay blessed, and stay strong.<br>
+Fulfill all your dreams.<br>
+If you ever feel tired, just message me.<br>
+I am always here for you and will try my best.<br><br>
+
+Happy Birthday, Ankika. 💖<br>
+Stay happy.
+</p>
+  <button class="next" onclick="nextPage()">Next ➜</button>
+</div>
+
+<!-- Page 6 -->
+<div class="page page-6">
+  <h1>Happy Birthday Dear Ankika 🎂💐</h1>
+</div>
+
+<script>
+let current = 0;
+const pages = document.querySelectorAll('.page');
+
+function nextPage(){
+  pages[current].classList.remove('active');
+  current++;
+  if(current < pages.length){
+    pages[current].classList.add('active');
+  }
+}
+</script>
+
+</body>
+</html>
